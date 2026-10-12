@@ -167,23 +167,6 @@
       -webkit-backdrop-filter: blur(8px);
     }
 
-    .premium-line {
-      position: relative;
-    }
-
-    .premium-line::before,
-    .premium-line::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      width: 28%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(212,175,55,0.7), transparent);
-    }
-
-    .premium-line::before { left: 0; }
-    .premium-line::after { right: 0; }
-
     .section-title {
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -247,7 +230,7 @@
 
       <div class="space-y-3 glass-card p-4 rounded-2xl border border-gold-400/20 shadow-sm w-full relative z-10">
         <p class="text-[10px] text-gray-600 uppercase tracking-[0.25em]">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-        <h2 class="text-lg font-semibold text-sage-800 border-y border-gold-400/30 py-1">Keluarga Besar H. Onih</h2>
+        <h2 id="guestRecipient" class="text-lg font-semibold text-sage-800 border-y border-gold-400/30 py-1">Keluarga Besar H. Onih</h2>
         <p class="text-[11px] text-gray-600 italic">Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda Untuk Hadir Di Acara Pernikahan Kami.</p>
       </div>
 
@@ -434,6 +417,17 @@
   <script>
     const audio = document.getElementById('bgMusic');
     let isPlaying = false;
+
+    const params = new URLSearchParams(window.location.search);
+    const guestNameParam = params.get('nama');
+    const guestRecipient = document.getElementById('guestRecipient');
+
+    if (guestNameParam && guestRecipient) {
+      const decodedName = decodeURIComponent(guestNameParam).trim();
+      if (decodedName) {
+        guestRecipient.textContent = decodedName;
+      }
+    }
 
     function openInvitation() {
       document.getElementById('cover').classList.add('hidden');

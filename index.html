@@ -50,15 +50,18 @@
       }
 
       .hero-bg {
-        background-image: linear-gradient(rgba(255,255,255,0.12), rgba(255,255,255,0.18)), url('bg-utama.jpeg');
+        position: relative;
+        background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.25) 100%), url('https://raw.githubusercontent.com/mustacecep10-boop/undangan-pernikahan-sally-cecep/main/bg-utama.jpeg');
         background-size: cover;
         background-position: center;
+        background-attachment: fixed;
       }
 
-      .cover-photo {
-        background-image: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.10)), url('bg-utama.jpeg');
+      .cover-photo-bg {
+        background: linear-gradient(135deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.25) 100%), url('https://raw.githubusercontent.com/mustacecep10-boop/undangan-pernikahan-sally-cecep/main/bg-utama.jpeg');
         background-size: cover;
         background-position: center;
+        background-attachment: fixed;
       }
 
       @keyframes float {
@@ -87,15 +90,15 @@
 
       <section id="cover" class="relative min-h-screen flex flex-col justify-between items-center text-center p-6 border-b border-gold-400/20 z-30 hero-bg">
         <div class="pt-8 space-y-2">
-          <p class="text-xs uppercase tracking-widest text-sage-600 font-medium">The Wedding Of</p>
-          <h1 class="font-cursive text-5xl text-sage-800 leading-tight py-2">Sally & Cecep</h1>
-          <p class="text-sm font-serif italic text-gray-600">Sabtu, 07 November 2026</p>
+          <p class="text-xs uppercase tracking-widest text-sage-600 font-medium drop-shadow">The Wedding Of</p>
+          <h1 class="font-cursive text-5xl text-sage-800 leading-tight py-2 drop-shadow-lg">Sally & Cecep</h1>
+          <p class="text-sm font-serif italic text-gray-700 drop-shadow">Sabtu, 07 November 2026</p>
         </div>
 
         <div class="relative w-full max-w-xs my-4 p-2 bg-white rounded-2xl shadow-xl border border-gold-400/30">
-          <div class="overflow-hidden rounded-xl aspect-[4/5] relative cover-photo">
+          <div class="overflow-hidden rounded-xl aspect-[4/5] relative cover-photo-bg">
             <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-            <div class="absolute bottom-3 left-0 right-0 text-white text-xs font-light px-2">
+            <div class="absolute bottom-3 left-0 right-0 text-white text-xs font-light px-2 text-center">
               Sally Alvina, S.Kep., Ners. & Cecep Muhammad Mustopa, S.Kep., Ners.
             </div>
           </div>
@@ -104,7 +107,7 @@
         <div class="space-y-3 glass p-4 rounded-xl border border-sage-200 shadow-sm w-full">
           <p class="text-xs text-gray-500 uppercase tracking-wider">Kepada Yth.</p>
           <h2 id="guestNameDisplay" class="text-lg font-semibold text-sage-800 border-y border-gold-400/30 py-1">Bapak/Ibu/Saudara/i</h2>
-          <p class="text-[11px] text-gray-500 italic">Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda Untuk Hadir Di Acara Pernikahan Kami.</p>
+          <p class="text-[11px] text-gray-600 italic">Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda Untuk Hadir Di Acara Pernikahan Kami.</p>
         </div>
 
         <div class="pb-6 w-full">
@@ -133,7 +136,7 @@
           <div class="bg-white p-5 rounded-2xl shadow-md border border-sage-100 text-center space-y-3">
             <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-2 border-gold-400 p-1 shadow-sm">
               <div class="w-full h-full rounded-full overflow-hidden">
-                <img src="foto-sally.jpeg" alt="Sally Alvina" class="w-full h-full object-cover" />
+                <img src="https://raw.githubusercontent.com/mustacecep10-boop/undangan-pernikahan-sally-cecep/main/foto-sally.jpeg" alt="Sally Alvina" class="w-full h-full object-cover" />
               </div>
             </div>
             <div>
@@ -149,7 +152,7 @@
           <div class="bg-white p-5 rounded-2xl shadow-md border border-sage-100 text-center space-y-3">
             <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-2 border-gold-400 p-1 shadow-sm">
               <div class="w-full h-full rounded-full overflow-hidden">
-                <img src="foto-cecep.jpeg" alt="Cecep Muhammad Mustopa" class="w-full h-full object-cover" />
+                <img src="https://raw.githubusercontent.com/mustacecep10-boop/undangan-pernikahan-sally-cecep/main/foto-cecep.jpeg" alt="Cecep Muhammad Mustopa" class="w-full h-full object-cover" />
               </div>
             </div>
             <div>

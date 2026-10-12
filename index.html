@@ -1,492 +1,381 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Undangan Pernikahan - Sally & Cecep</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan Pernikahan - Sally & Cecep</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ivory: '#f8f5f1',
-            pewter: '#6b6f68',
-            emerald: '#213b30',
-            sage: {
-              50: '#f6f7f3',
-              100: '#edf0ea',
-              200: '#dfe9de',
-              300: '#c8d4c9',
-              600: '#5d745d',
-              700: '#45614a',
-              800: '#213b30',
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              sage: {
+                50: '#f4f7f4',
+                100: '#e3eae3',
+                200: '#d7e1d7',
+                300: '#a3b8a3',
+                600: '#527352',
+                700: '#3e583e',
+                800: '#2b3d2b',
+              },
+              gold: {
+                400: '#d4af37',
+                500: '#c5a028',
+                600: '#a3821a',
+              },
             },
-            gold: {
-              300: '#e3c66a',
-              400: '#d4af37',
-              500: '#ba8d2d',
-              600: '#9b7318'
+            fontFamily: {
+              serif: ['Amiri', 'serif'],
+              cursive: ['Great Vibes', 'cursive'],
+              sans: ['Plus Jakarta Sans', 'sans-serif'],
             },
-            blush: '#efe3dd'
           },
-          fontFamily: {
-            serif: ['Amiri', 'serif'],
-            display: ['Cormorant Garamond', 'serif'],
-            cursive: ['Great Vibes', 'cursive'],
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
-          }
+        },
+      };
+    </script>
+
+    <style>
+      .bg-pattern {
+        background-color: #f8faf8;
+        background-image: radial-gradient(#d4af37 0.75px, transparent 0.75px), radial-gradient(#d4af37 0.75px, #f8faf8 0.75px);
+        background-size: 30px 30px;
+        background-position: 0 0, 15px 15px;
+        opacity: 0.14;
+      }
+
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+      }
+
+      .animate-float {
+        animation: float 4s ease-in-out infinite;
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+    </style>
+  </head>
+  <body class="font-sans antialiased text-gray-800 bg-gray-100 selection:bg-sage-600 selection:text-white">
+    <div class="max-w-md mx-auto bg-white min-h-screen shadow-2xl relative overflow-hidden pb-12 bg-pattern">
+      <button id="audioControl" onclick="toggleAudio()" class="fixed top-5 right-5 z-40 bg-white/80 backdrop-blur-md p-3 rounded-full shadow-lg border border-gold-400/30 text-sage-700 hover:bg-white transition duration-300 hidden">
+        <i id="audioIcon" class="fas fa-music animate-spin text-lg" style="animation-duration: 4s;"></i>
+      </button>
+      <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=wedding-background-music-112521.mp3"></audio>
+
+      <section id="cover" class="relative min-h-screen flex flex-col justify-between items-center text-center p-6 bg-gradient-to-b from-sage-50/90 via-white/80 to-sage-50/90 border-b border-gold-400/20 z-30">
+        <div class="pt-8 space-y-2">
+          <p class="text-xs uppercase tracking-widest text-sage-600 font-medium">The Wedding Of</p>
+          <h1 class="font-cursive text-5xl text-sage-800 leading-tight py-2">Sally & Cecep</h1>
+          <p class="text-sm font-serif italic text-gray-600">Sabtu, 07 November 2026</p>
+        </div>
+
+        <div class="relative w-full max-w-xs my-4 p-2 bg-white rounded-2xl shadow-xl border border-gold-400/30">
+          <div class="overflow-hidden rounded-xl aspect-[4/5] relative">
+            <img src="https://storage.googleapis.com/generativeai-downloads/images/wedding_illustration.jpg" alt="Sally & Cecep" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+            <div class="absolute bottom-3 left-0 right-0 text-white text-xs font-light px-2">
+              Sally Alvina, S.Kep., Ners. & Cecep Muhammad Mustopa, S.Kep., Ners.
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-3 glass p-4 rounded-xl border border-sage-200 shadow-sm w-full">
+          <p class="text-xs text-gray-500 uppercase tracking-wider">Kepada Yth.</p>
+          <h2 id="guestNameDisplay" class="text-lg font-semibold text-sage-800 border-y border-gold-400/30 py-1">Bapak/Ibu/Saudara/i</h2>
+          <p class="text-[11px] text-gray-500 italic">Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda Untuk Hadir Di Acara Pernikahan Kami.</p>
+        </div>
+
+        <div class="pb-6 w-full">
+          <button onclick="openInvitation()" class="w-full py-3.5 px-6 bg-sage-700 hover:bg-sage-800 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 border border-gold-400/40 animate-bounce">
+            <i class="fas fa-envelope-open"></i>
+            <span>Buka Undangan</span>
+          </button>
+        </div>
+      </section>
+
+      <div id="mainContent" class="opacity-0 transition-opacity duration-1000 hidden">
+        <section class="p-8 text-center space-y-4 my-6 bg-white/60 backdrop-blur-sm mx-4 rounded-2xl border border-gold-400/20 shadow-sm">
+          <div class="text-sage-600 text-2xl font-serif">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+          <p class="font-serif text-lg text-sage-800 leading-relaxed">
+            "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari mepelaumu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
+          </p>
+          <p class="text-xs font-semibold text-gold-600 tracking-wider">QS. AR-RUM: 21</p>
+        </section>
+
+        <section class="p-6 space-y-8">
+          <div class="text-center space-y-1">
+            <h2 class="font-cursive text-4xl text-sage-800">Mempelai Pengantin</h2>
+            <p class="text-xs text-gray-500">Dengan Memohon Rahmat & Ridho Allah SWT</p>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl shadow-md border border-sage-100 text-center space-y-3">
+            <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-2 border-gold-400 p-1 shadow-sm">
+              <div class="w-full h-full rounded-full overflow-hidden">
+                <img src="https://storage.googleapis.com/generativeai-downloads/images/bride_avatar.jpg" alt="Sally Alvina" class="w-full h-full object-cover" />
+              </div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg text-sage-800">Sally Alvina, S.Kep., Ners.</h3>
+              <p class="text-xs text-gray-500 mt-1">Putri dari Bapak Aan Trianto & Ibu Marminah</p>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <span class="font-cursive text-3xl text-gold-500">&</span>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl shadow-md border border-sage-100 text-center space-y-3">
+            <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-2 border-gold-400 p-1 shadow-sm">
+              <div class="w-full h-full rounded-full overflow-hidden">
+                <img src="https://storage.googleapis.com/generativeai-downloads/images/groom_avatar.jpg" alt="Cecep Muhammad Mustopa" class="w-full h-full object-cover" />
+              </div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg text-sage-800">Cecep Muhammad Mustopa, S.Kep., Ners.</h3>
+              <p class="text-xs text-gray-500 mt-1">Putra dari Bapak H. Tolib & Ibu H. Atik Fatimah</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="p-6 my-4">
+          <div class="bg-sage-800 text-white rounded-3xl p-6 shadow-xl relative overflow-hidden text-center space-y-6">
+            <div class="space-y-2">
+              <span class="text-xs text-gold-400 uppercase tracking-widest font-semibold">Save The Date</span>
+              <h2 class="font-cursive text-4xl text-gold-400">Akad Nikah</h2>
+            </div>
+
+            <div class="grid grid-cols-4 gap-2 text-center my-4">
+              <div class="bg-sage-700/80 p-2 rounded-xl border border-gold-400/20">
+                <span id="days" class="block text-2xl font-bold text-gold-400">00</span>
+                <span class="text-[10px] text-gray-300">Hari</span>
+              </div>
+              <div class="bg-sage-700/80 p-2 rounded-xl border border-gold-400/20">
+                <span id="hours" class="block text-2xl font-bold text-gold-400">00</span>
+                <span class="text-[10px] text-gray-300">Jam</span>
+              </div>
+              <div class="bg-sage-700/80 p-2 rounded-xl border border-gold-400/20">
+                <span id="minutes" class="block text-2xl font-bold text-gold-400">00</span>
+                <span class="text-[10px] text-gray-300">Menit</span>
+              </div>
+              <div class="bg-sage-700/80 p-2 rounded-xl border border-gold-400/20">
+                <span id="seconds" class="block text-2xl font-bold text-gold-400">00</span>
+                <span class="text-[10px] text-gray-300">Detik</span>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-sm text-gray-200 border-t border-sage-700 pt-4">
+              <p class="flex items-center justify-center gap-2">
+                <i class="far fa-calendar-alt text-gold-400"></i>
+                <span>Sabtu, 07 November 2026</span>
+              </p>
+              <p class="flex items-center justify-center gap-2">
+                <i class="far fa-clock text-gold-400"></i>
+                <span>Pukul 08.00 WIB - Selesai</span>
+              </p>
+              <p class="flex items-center justify-center gap-2">
+                <i class="fas fa-map-marker-alt text-gold-400"></i>
+                <span>Kediaman Mempelai Wanita</span>
+              </p>
+            </div>
+
+            <div class="pt-2">
+              <a href="https://maps.google.com/?q=-6.31525,107.058139" target="_blank" class="inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-600 text-sage-800 font-semibold text-xs py-3 px-6 rounded-full shadow-lg transition duration-300">
+                <i class="fas fa-location-arrow"></i>
+                <span>Buka Google Maps</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="p-6 space-y-6">
+          <div class="text-center space-y-2">
+            <h2 class="font-cursive text-4xl text-sage-800">Amplop Digital</h2>
+            <p class="text-xs text-gray-600">Doa Restu Anda merupakan hadiah terindah bagi kami. Namun jika ingin memberi tanda kasih, dapat melalui rekening berikut:</p>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl shadow-md border border-sage-200 space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-sage-800">CIMB Niaga</span>
+              <i class="fas fa-credit-card text-gold-500"></i>
+            </div>
+            <div class="text-left space-y-1">
+              <p class="text-xs text-gray-500">Nomor Rekening:</p>
+              <p class="text-lg font-mono font-bold text-gray-800" id="rek1">707015467300</p>
+              <p class="text-xs font-medium text-sage-700">a.n. Sally Alvina</p>
+            </div>
+            <button onclick="copyText('rek1')" class="w-full py-2 bg-sage-50 hover:bg-sage-100 text-sage-700 rounded-lg text-xs font-medium border border-sage-200 flex items-center justify-center gap-2 transition">
+              <i class="far fa-copy"></i>
+              <span>Salin No. Rekening</span>
+            </button>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl shadow-md border border-sage-200 space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-sage-800">CIMB Niaga</span>
+              <i class="fas fa-credit-card text-gold-500"></i>
+            </div>
+            <div class="text-left space-y-1">
+              <p class="text-xs text-gray-500">Nomor Rekening:</p>
+              <p class="text-lg font-mono font-bold text-gray-800" id="rek2">705676465000</p>
+              <p class="text-xs font-medium text-sage-700">a.n. Cecep Muhammad Mustopa</p>
+            </div>
+            <button onclick="copyText('rek2')" class="w-full py-2 bg-sage-50 hover:bg-sage-100 text-sage-700 rounded-lg text-xs font-medium border border-sage-200 flex items-center justify-center gap-2 transition">
+              <i class="far fa-copy"></i>
+              <span>Salin No. Rekening</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="p-6 space-y-6">
+          <div class="bg-white p-6 rounded-2xl shadow-md border border-sage-200 space-y-4">
+            <div class="text-center space-y-1">
+              <h2 class="font-cursive text-3xl text-sage-800">Ucapan & Doa Restu</h2>
+              <p class="text-xs text-gray-500">Kirimkan ucapan selamat & doa untuk kami</p>
+            </div>
+
+            <form id="rsvpForm" class="space-y-3" onsubmit="submitRSVP(event)">
+              <div>
+                <input type="text" id="guestName" required placeholder="Nama Anda" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-xs focus:ring-1 focus:ring-sage-600 focus:outline-none" />
+              </div>
+              <div>
+                <textarea id="guestMessage" rows="4" placeholder="Ucapan & doa restu" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-xs focus:ring-1 focus:ring-sage-600 focus:outline-none"></textarea>
+              </div>
+              <button type="submit" class="w-full py-3 bg-sage-700 hover:bg-sage-800 text-white rounded-xl text-sm font-semibold shadow-md transition">
+                <i class="far fa-paper-plane mr-2"></i>Kirim Ucapan
+              </button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      function getGuestName() {
+        const params = new URLSearchParams(window.location.search);
+        const rawName = params.get('nama') || params.get('name') || params.get('guest') || '';
+        if (!rawName) {
+          return 'Bapak/Ibu/Saudara/i';
+        }
+        return decodeURIComponent(rawName).trim() || 'Bapak/Ibu/Saudara/i';
+      }
+
+      function setGuestName() {
+        const guestName = getGuestName();
+        const display = document.getElementById('guestNameDisplay');
+        if (display) {
+          display.textContent = guestName;
         }
       }
-    }
-  </script>
 
-  <style>
-    :root {
-      --ivory: #f8f5f1;
-      --ivory-deep: #f1ece4;
-      --panel: rgba(255, 255, 255, 0.6);
-      --gold: #d4af37;
-      --gold-soft: #e9d291;
-      --emerald: #213b30;
-      --emerald-2: #365949;
-      --sage: #5d745d;
-      --ink: #2b2f2e;
-      --rose: #f6efeb;
-      --shadow: rgba(22, 25, 20, 0.08);
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: linear-gradient(180deg, #f8f4ee 0%, #eef3ef 100%);
-      color: var(--ink);
-    }
-
-    .bg-soft-ornament {
-      background:
-        radial-gradient(circle at 50% 10%, rgba(255,255,255,0.85), rgba(255,255,255,0) 24%),
-        linear-gradient(180deg, #f1ece5 0%, #edf4ee 52%, #f6f0ea 100%);
-    }
-
-    .floral-arch {
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.04)),
-        radial-gradient(circle at 50% 16%, rgba(249, 245, 239, 0.9), rgba(249,245,239,0) 26%),
-        linear-gradient(180deg, #ebf4f2 0%, #f6f0ea 100%);
-    }
-
-    .floral-arch::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 6%;
-      width: 88%;
-      height: 88%;
-      transform: translateX(-50%);
-      border: 5px solid rgba(212, 175, 55, 0.85);
-      border-radius: 45% 45% 0 0 / 54% 54% 0 0;
-      border-bottom: none;
-      box-shadow: 0 0 0 11px rgba(212,175,55,0.12), 0 0 0 20px rgba(212,175,55,0.08);
-      pointer-events: none;
-    }
-
-    .floral-arch::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 12% 18%, rgba(147, 177, 144, 0.28) 0 13%, transparent 14%),
-        radial-gradient(circle at 87% 18%, rgba(147, 177, 144, 0.28) 0 13%, transparent 14%),
-        radial-gradient(circle at 23% 76%, rgba(147, 177, 144, 0.24) 0 14%, transparent 15%),
-        radial-gradient(circle at 74% 76%, rgba(147, 177, 144, 0.24) 0 14%, transparent 15%);
-      pointer-events: none;
-    }
-
-    .petal {
-      position: absolute;
-      width: 18px;
-      height: 22px;
-      background: rgba(255,255,255,0.9);
-      border-radius: 55% 45% 50% 50%;
-      opacity: 0.9;
-      box-shadow: inset 0 0 0 1px rgba(212,175,55,0.08);
-    }
-
-    .petal::before {
-      content: "";
-      position: absolute;
-      inset: 20% 20% 18% 20%;
-      border-radius: 100% 0 100% 0;
-      background: rgba(233, 212, 156, 0.7);
-      transform: rotate(25deg);
-    }
-
-    .leaf-spray {
-      position: absolute;
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      opacity: 0.45;
-      background: radial-gradient(circle at 35% 35%, rgba(142, 174, 140, 0.82), rgba(142, 174, 140, 0.22) 62%, transparent 70%);
-      filter: blur(0.5px);
-    }
-
-    .leaf-spray::before,
-    .leaf-spray::after {
-      content: "";
-      position: absolute;
-      background: rgba(103, 136, 103, 0.8);
-      border-radius: 50% 50% 50% 0;
-      width: 18px;
-      height: 40px;
-      top: 18%;
-      left: 48%;
-      box-shadow: -22px 18px rgba(103,136,103,0.7), 20px 20px rgba(103,136,103,0.7), -10px 52px rgba(103,136,103,0.7), 12px 62px rgba(103,136,103,0.66);
-    }
-
-    .leaf-spray::after {
-      transform: rotate(-24deg);
-      left: 33%;
-      top: 28%;
-      box-shadow: 24px 15px rgba(103,136,103,0.72), 52px 8px rgba(103,136,103,0.66), 18px 58px rgba(103,136,103,0.66);
-    }
-
-    .glass-card {
-      background: rgba(255, 255, 255, 0.56);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    .section-title {
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-size: 0.7rem;
-      color: rgba(46, 61, 50, 0.75);
-    }
-
-    .bg-pattern {
-      background-color: #faf8f4;
-      background-image:
-        radial-gradient(#d4af37 0.7px, transparent 0.7px),
-        radial-gradient(#d4af37 0.7px, #faf8f4 0.7px);
-      background-size: 28px 28px;
-      background-position: 0 0, 14px 14px;
-      opacity: 0.12;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
-    }
-
-    .animate-float {
-      animation: float 4.5s ease-in-out infinite;
-    }
-  </style>
-</head>
-<body class="font-sans antialiased text-gray-800 bg-gray-100 selection:bg-sage-600 selection:text-white">
-  <div class="max-w-md mx-auto min-h-screen shadow-2xl relative overflow-hidden pb-12 bg-pattern">
-    <button id="audioControl" onclick="toggleAudio()" class="fixed top-5 right-5 z-40 bg-white/80 backdrop-blur-md p-3 rounded-full shadow-lg border border-gold-400/30 text-sage-700 hover:bg-white transition duration-300 hidden">
-      <i id="audioIcon" class="fas fa-music animate-spin text-lg" style="animation-duration: 4s;"></i>
-    </button>
-    <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=wedding-background-music-112521.mp3"></audio>
-
-    <section id="cover" class="relative min-h-screen flex flex-col justify-between items-center text-center p-6 floral-arch border-b border-gold-400/20 z-30">
-      <div class="leaf-spray" style="left:-28px; top:8%; transform: rotate(20deg);"></div>
-      <div class="leaf-spray" style="right:-24px; top:10%; transform: rotate(-18deg);"></div>
-      <div class="leaf-spray" style="left:12%; bottom:8%; transform: scale(0.8) rotate(-15deg);"></div>
-      <div class="leaf-spray" style="right:14%; bottom:11%; transform: scale(0.8) rotate(18deg);"></div>
-
-      <div class="petal" style="left: 14%; top: 18%; transform: rotate(18deg);"></div>
-      <div class="petal" style="right: 11%; top: 17%; transform: rotate(-22deg);"></div>
-      <div class="petal" style="left: 23%; bottom: 16%; transform: rotate(10deg);"></div>
-      <div class="petal" style="right: 22%; bottom: 17%; transform: rotate(-12deg);"></div>
-
-      <div class="pt-8 space-y-2 relative z-10">
-        <p class="text-[11px] uppercase tracking-[0.35em] text-sage-600 font-medium">The Wedding Of</p>
-        <h1 class="font-cursive text-5xl text-sage-800 leading-tight py-2">Sally & Cecep</h1>
-        <p class="text-sm font-serif italic text-gray-700">Sabtu, 07 November 2026</p>
-      </div>
-
-      <div class="relative z-10 w-full max-w-xs my-4 p-2 bg-white/80 rounded-2xl shadow-xl border border-gold-400/40">
-        <div class="overflow-hidden rounded-xl aspect-[4/5] relative">
-          <img src="https://storage.googleapis.com/generativeai-downloads/images/wedding_illustration.jpg" alt="Sally & Cecep Ilustrasi" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
-          <div class="absolute bottom-3 left-0 right-0 text-white text-[11px] font-light px-3 tracking-wide">
-            Sally Alvina, S.Kep., Ners. & Cecep Muhammad Mustopa, S.Kep., Ners.
-          </div>
-        </div>
-      </div>
-
-      <div class="space-y-3 glass-card p-4 rounded-2xl border border-gold-400/20 shadow-sm w-full relative z-10">
-        <p class="text-[10px] text-gray-600 uppercase tracking-[0.25em]">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-        <h2 id="guestRecipient" class="text-lg font-semibold text-sage-800 border-y border-gold-400/30 py-1">Keluarga Besar H. Onih</h2>
-        <p class="text-[11px] text-gray-600 italic">Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda Untuk Hadir Di Acara Pernikahan Kami.</p>
-      </div>
-
-      <div class="pb-6 w-full relative z-10">
-        <button onclick="openInvitation()" class="w-full py-3.5 px-6 bg-sage-800 hover:bg-sage-700 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 border border-gold-400/40 animate-bounce">
-          <i class="fas fa-envelope-open"></i>
-          <span>Buka Undangan</span>
-        </button>
-      </div>
-    </section>
-
-    <div id="mainContent" class="opacity-0 transition-opacity duration-1000 hidden">
-      <section class="p-8 text-center space-y-4 my-6 glass-card mx-4 rounded-2xl border border-gold-400/20 shadow-sm">
-        <div class="text-sage-600 text-[1.8rem] font-serif">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-        <p class="font-serif text-lg text-sage-800 leading-relaxed italic">
-          "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari mepelaumu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
-        </p>
-        <p class="text-[10px] font-semibold text-gold-600 tracking-[0.25em]">QS. AR-RUM: 21</p>
-      </section>
-
-      <section class="p-6 space-y-8">
-        <div class="text-center space-y-2">
-          <p class="section-title">With Gratitude</p>
-          <h2 class="font-cursive text-4xl text-sage-800">Mempelai Pengantin</h2>
-          <p class="text-[11px] text-gray-500 tracking-[0.16em] uppercase">Dengan Memohon Rahmat & Ridho Allah SWT</p>
-        </div>
-
-        <div class="bg-white p-5 rounded-2xl shadow-md border border-sage-100 text-center space-y-3">
-          <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-2 border-gold-400 p-1 shadow-sm">
-            <div class="w-full h-full rounded-full overflow-hidden">
-              <img src="https://storage.googleapis.com/generativeai-downloads/images/bride_avatar.jpg" alt="Sally Alvina" class="w-full h-full object-cover" />
-            </div>
-          </div>
-          <div>
-            <h3 class="font-semibold text-xl text-sage-800">Sally Alvina, S.Kep., Ners.</h3>
-            <p class="text-xs text-gray-500 mt-1">Putri dari Bapak Aan Trianto & Ibu Marminah</p>
-          </div>
-        </div>
-
-        <div class="text-center">
-          <span class="font-cursive text-4xl text-gold-500">&</span>
-        </div>
-
-        <div class="bg-white p-5 rounded-2xl shadow-md border border-sage-100 text-center space-y-3">
-          <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-2 border-gold-400 p-1 shadow-sm">
-            <div class="w-full h-full rounded-full overflow-hidden">
-              <img src="https://storage.googleapis.com/generativeai-downloads/images/groom_avatar.jpg" alt="Cecep Muhammad Mustopa" class="w-full h-full object-cover" />
-            </div>
-          </div>
-          <div>
-            <h3 class="font-semibold text-xl text-sage-800">Cecep Muhammad Mustopa, S.Kep., Ners.</h3>
-            <p class="text-xs text-gray-500 mt-1">Putra dari Bapak H. Tolib & Ibu Hj. Atik Fatimah (Almh)</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="p-6 my-4">
-        <div class="bg-sage-800 text-white rounded-[28px] p-6 shadow-xl relative overflow-hidden text-center space-y-6">
-          <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent"></div>
-          <div class="space-y-2 relative z-10">
-            <span class="text-[10px] text-gold-300 uppercase tracking-[0.3em] font-semibold">Save The Date</span>
-            <h2 class="font-cursive text-4xl text-gold-400">Akad Nikah</h2>
-          </div>
-
-          <div class="grid grid-cols-4 gap-2 text-center my-4 relative z-10">
-            <div class="bg-sage-700/80 p-2 rounded-xl border border-gold-400/20">
-              <span id="days" class="block text-2xl font-bold text-gold-400">00</span>
-              <span class="text-[10px] text-gray-300">Hari</span>
-            </div>
-            <div class="bg-sage-700/80 p-2 rounded-xl border border-gold-400/20">
-              <span id="hours" class="block text-2xl font-bold text-gold-400">00</span>
-              <span class="text-[10px] text-gray-300">Jam</span>
-            </div>
-            <div class="bg-sage-700/80 p-2 rounded-xl border border-gold-400/20">
-              <span id="minutes" class="block text-2xl font-bold text-gold-400">00</span>
-              <span class="text-[10px] text-gray-300">Menit</span>
-            </div>
-            <div class="bg-sage-700/80 p-2 rounded-xl border border-gold-400/20">
-              <span id="seconds" class="block text-2xl font-bold text-gold-400">00</span>
-              <span class="text-[10px] text-gray-300">Detik</span>
-            </div>
-          </div>
-
-          <div class="space-y-3 text-sm text-gray-200 border-t border-sage-700 pt-4 relative z-10">
-            <p class="flex items-center justify-center gap-2">
-              <i class="far fa-calendar-alt text-gold-400"></i>
-              <span>Sabtu, 07 November 2026</span>
-            </p>
-            <p class="flex items-center justify-center gap-2">
-              <i class="far fa-clock text-gold-400"></i>
-              <span>Pukul 08.00 WIB - Selesai</span>
-            </p>
-            <p class="flex items-center justify-center gap-2">
-              <i class="fas fa-map-marker-alt text-gold-400"></i>
-              <span>Kediaman Mempelai Wanita</span>
-            </p>
-          </div>
-
-          <div class="pt-2 relative z-10">
-            <a href="https://maps.google.com/?q=-6.315273,107.058066" target="_blank" class="inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-600 text-sage-800 font-semibold text-xs py-3 px-6 rounded-full shadow-lg transition duration-300">
-              <i class="fas fa-location-arrow"></i>
-              <span>Buka Google Maps</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="p-6 space-y-6">
-        <div class="text-center space-y-2">
-          <p class="section-title">Wedding Gift</p>
-          <h2 class="font-cursive text-4xl text-sage-800">Amplop Digital</h2>
-          <p class="text-xs text-gray-600">Doa Restu Anda merupakan hadiah terindah bagi kami. Namun jika ingin memberi tanda kasih, dapat melalui rekening berikut:</p>
-        </div>
-
-        <div class="bg-white p-5 rounded-2xl shadow-md border border-sage-200 space-y-3">
-          <div class="flex justify-between items-center">
-            <span class="font-bold text-sage-800">CIMB Niaga</span>
-            <i class="fas fa-credit-card text-gold-500"></i>
-          </div>
-          <div class="text-left space-y-1">
-            <p class="text-xs text-gray-500">Nomor Rekening:</p>
-            <p class="text-lg font-mono font-bold text-gray-800" id="rek1">707015467300</p>
-            <p class="text-xs font-medium text-sage-700">a.n. Sally Alvina</p>
-          </div>
-          <button onclick="copyText('rek1')" class="w-full py-2 bg-sage-50 hover:bg-sage-100 text-sage-700 rounded-lg text-xs font-medium border border-sage-200 flex items-center justify-center gap-2 transition">
-            <i class="far fa-copy"></i>
-            <span>Salin No. Rekening</span>
-          </button>
-        </div>
-
-        <div class="bg-white p-5 rounded-2xl shadow-md border border-sage-200 space-y-3">
-          <div class="flex justify-between items-center">
-            <span class="font-bold text-sage-800">CIMB Niaga</span>
-            <i class="fas fa-credit-card text-gold-500"></i>
-          </div>
-          <div class="text-left space-y-1">
-            <p class="text-xs text-gray-500">Nomor Rekening:</p>
-            <p class="text-lg font-mono font-bold text-gray-800" id="rek2">705676465000</p>
-            <p class="text-xs font-medium text-sage-700">a.n. Cecep Muhammad Mustopa</p>
-          </div>
-          <button onclick="copyText('rek2')" class="w-full py-2 bg-sage-50 hover:bg-sage-100 text-sage-700 rounded-lg text-xs font-medium border border-sage-200 flex items-center justify-center gap-2 transition">
-            <i class="far fa-copy"></i>
-            <span>Salin No. Rekening</span>
-          </button>
-        </div>
-      </section>
-
-      <section class="p-6 space-y-6">
-        <div class="bg-white p-6 rounded-2xl shadow-md border border-sage-200 space-y-4">
-          <div class="text-center space-y-1">
-            <p class="section-title">Guestbook</p>
-            <h2 class="font-cursive text-3xl text-sage-800">Ucapan & Doa Restu</h2>
-            <p class="text-xs text-gray-500">Kirimkan ucapan selamat & doa untuk kami</p>
-          </div>
-
-          <form id="rsvpForm" class="space-y-3" onsubmit="submitRSVP(event)">
-            <div>
-              <input type="text" id="guestName" required placeholder="Nama Anda" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-xs focus:ring-1 focus:ring-sage-600 focus:outline-none" />
-            </div>
-            <div>
-              <textarea id="guestMessage" rows="3" required placeholder="Tuliskan ucapan & doa restu..." class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-xs focus:ring-1 focus:ring-sage-600 focus:outline-none"></textarea>
-            </div>
-            <button type="submit" class="w-full py-3 bg-sage-700 hover:bg-sage-800 text-white rounded-xl text-xs font-medium shadow-md transition">Kirim Ucapan</button>
-          </form>
-
-          <div id="messagesList" class="space-y-3 pt-4 border-t border-gray-100 max-h-60 overflow-y-auto text-left">
-            <div class="bg-sage-50/60 p-3 rounded-xl space-y-1">
-              <p class="font-semibold text-xs text-sage-800">Keluarga Besar H. Onih</p>
-              <p class="text-xs text-gray-600 italic">"Selamat untuk Sally & Cecep! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah. Aamiin."</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer class="text-center p-8 text-xs text-gray-500 space-y-2 border-t border-gray-200 mt-8">
-        <p>Merupakan suatu kehormatan & kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
-        <p class="font-semibold text-sage-800">Kami Yang Berbahagia,</p>
-        <p class="font-cursive text-2xl text-sage-800">Sally & Cecep</p>
-        <p class="text-[10px] text-gray-400 pt-4">© 2026 Undangan Digital Pernikahan</p>
-      </footer>
-    </div>
-  </div>
-
-  <script>
-    const audio = document.getElementById('bgMusic');
-    let isPlaying = false;
-
-    const params = new URLSearchParams(window.location.search);
-    const guestNameParam = params.get('nama');
-    const guestRecipient = document.getElementById('guestRecipient');
-
-    if (guestNameParam && guestRecipient) {
-      const decodedName = decodeURIComponent(guestNameParam).trim();
-      if (decodedName) {
-        guestRecipient.textContent = decodedName;
+      function openInvitation() {
+        const cover = document.getElementById('cover');
+        const mainContent = document.getElementById('mainContent');
+        if (cover) cover.style.display = 'none';
+        if (mainContent) {
+          mainContent.classList.remove('hidden');
+          requestAnimationFrame(() => {
+            mainContent.classList.remove('opacity-0');
+            mainContent.classList.add('opacity-100');
+          });
+        }
       }
-    }
 
-    function openInvitation() {
-      document.getElementById('cover').classList.add('hidden');
-      const main = document.getElementById('mainContent');
-      main.classList.remove('hidden');
-      setTimeout(() => main.classList.remove('opacity-0'), 50);
+      function updateCountdown() {
+        const targetDate = new Date('2026-11-07T08:00:00+07:00');
+        const now = new Date();
+        const diff = targetDate - now;
 
-      document.getElementById('audioControl').classList.remove('hidden');
-      audio.play();
-      isPlaying = true;
-    }
+        if (diff <= 0) {
+          document.getElementById('days').textContent = '00';
+          document.getElementById('hours').textContent = '00';
+          document.getElementById('minutes').textContent = '00';
+          document.getElementById('seconds').textContent = '00';
+          return;
+        }
 
-    function toggleAudio() {
-      const icon = document.getElementById('audioIcon');
-      if (isPlaying) {
-        audio.pause();
-        icon.classList.remove('animate-spin');
-      } else {
-        audio.play();
-        icon.classList.add('animate-spin');
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
       }
-      isPlaying = !isPlaying;
-    }
 
-    const targetDate = new Date('November 7, 2026 08:00:00').getTime();
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-
-      if (distance > 0) {
-        document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-        document.getElementById('hours').innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-        document.getElementById('minutes').innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-        document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+      function copyText(id) {
+        const text = document.getElementById(id).innerText.trim();
+        navigator.clipboard.writeText(text).then(() => {
+          const button = event.target.closest('button');
+          if (button) {
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check"></i><span>Berhasil Disalin</span>';
+            setTimeout(() => {
+              button.innerHTML = originalText;
+            }, 1200);
+          }
+        }).catch(() => {
+          alert('Gagal menyalin. Silakan salin secara manual.');
+        });
       }
-    }, 1000);
 
-    function copyText(elementId) {
-      const text = document.getElementById(elementId).innerText;
-      navigator.clipboard.writeText(text);
-      alert('Nomor rekening berhasil disalin!');
-    }
+      function submitRSVP(event) {
+        event.preventDefault();
+        const guestName = document.getElementById('guestName').value.trim();
+        const guestMessage = document.getElementById('guestMessage').value.trim();
 
-    function submitRSVP(e) {
-      e.preventDefault();
-      const name = document.getElementById('guestName').value;
-      const msg = document.getElementById('guestMessage').value;
+        if (!guestName) return;
 
-      if (name && msg) {
-        const list = document.getElementById('messagesList');
-        const newMsg = document.createElement('div');
-        newMsg.className = 'bg-sage-50/60 p-3 rounded-xl space-y-1 border border-sage-100';
-        newMsg.innerHTML = `<p class="font-semibold text-xs text-sage-800">${name}</p><p class="text-xs text-gray-600 italic">"${msg}"</p>`;
-        list.prepend(newMsg);
-
-        document.getElementById('rsvpForm').reset();
-        alert('Terima kasih atas doa dan ucapannya!');
+        const message = guestMessage ? `Ucapan: ${guestMessage}` : 'Ucapan: Terima kasih atas doa restunya.';
+        const whatsappMessage = encodeURIComponent(`Halo Sally & Cecep,\n\nSaya ${guestName}\n${message}\n\nSemoga selalu diberi kebahagiaan.`);
+        const whatsappLink = `https://wa.me/6281234567890?text=${whatsappMessage}`;
+        window.open(whatsappLink, '_blank');
       }
-    }
-  </script>
-</body>
+
+      function toggleAudio() {
+        const audio = document.getElementById('bgMusic');
+        const icon = document.getElementById('audioIcon');
+        if (!audio) return;
+
+        if (audio.paused) {
+          audio.play();
+          icon.classList.remove('fa-music');
+          icon.classList.add('fa-pause');
+        } else {
+          audio.pause();
+          icon.classList.remove('fa-pause');
+          icon.classList.add('fa-music');
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        setGuestName();
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        const audio = document.getElementById('bgMusic');
+        const audioControl = document.getElementById('audioControl');
+        if (audio && audioControl) {
+          audio.addEventListener('canplay', () => {
+            audioControl.classList.remove('hidden');
+          });
+          audio.addEventListener('play', () => {
+            audioControl.classList.remove('hidden');
+          });
+        }
+      });
+    </script>
+  </body>
 </html>

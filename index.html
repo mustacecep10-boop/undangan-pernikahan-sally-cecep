@@ -8,30 +8,36 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
+            ivory: '#f8f5f1',
+            pewter: '#6b6f68',
+            emerald: '#213b30',
             sage: {
-              50: '#f4f7f4',
-              100: '#e3eae3',
-              200: '#ca39ca',
-              300: '#a3b8a3',
-              600: '#527352',
-              700: '#3e583e',
-              800: '#2b3d2b',
+              50: '#f6f7f3',
+              100: '#edf0ea',
+              200: '#dfe9de',
+              300: '#c8d4c9',
+              600: '#5d745d',
+              700: '#45614a',
+              800: '#213b30',
             },
             gold: {
+              300: '#e3c66a',
               400: '#d4af37',
-              500: '#c5a028',
-              600: '#a3821a'
-            }
+              500: '#ba8d2d',
+              600: '#9b7318'
+            },
+            blush: '#efe3dd'
           },
           fontFamily: {
             serif: ['Amiri', 'serif'],
+            display: ['Cormorant Garamond', 'serif'],
             cursive: ['Great Vibes', 'cursive'],
             sans: ['Plus Jakarta Sans', 'sans-serif'],
           }
@@ -42,141 +48,166 @@
 
   <style>
     :root {
-      --bg-cream: #f6f0ea;
-      --bg-soft: #edf3ef;
-      --panel: rgba(255,255,255,0.68);
-      --sage: #3e583e;
+      --ivory: #f8f5f1;
+      --ivory-deep: #f1ece4;
+      --panel: rgba(255, 255, 255, 0.6);
       --gold: #d4af37;
-      --gold-deep: #bb8d22;
-      --rose: #f5e7dc;
-      --leaf: #7e9a78;
-      --leaf-dark: #5f7f62;
+      --gold-soft: #e9d291;
+      --emerald: #213b30;
+      --emerald-2: #365949;
+      --sage: #5d745d;
+      --ink: #2b2f2e;
+      --rose: #f6efeb;
+      --shadow: rgba(22, 25, 20, 0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background: linear-gradient(180deg, #f4ede7 0%, #ebf5f2 100%);
+      background: linear-gradient(180deg, #f8f4ee 0%, #eef3ef 100%);
+      color: var(--ink);
     }
 
-    .bg-fabric {
+    .bg-soft-ornament {
       background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.9), transparent 30%),
-        linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.08)),
-        linear-gradient(180deg, #dfeeea 0%, #ebf4f1 48%, #f3eee6 100%);
+        radial-gradient(circle at 50% 10%, rgba(255,255,255,0.85), rgba(255,255,255,0) 24%),
+        linear-gradient(180deg, #f1ece5 0%, #edf4ee 52%, #f6f0ea 100%);
     }
 
-    .arch-scene {
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.08)),
-        radial-gradient(circle at 50% 20%, rgba(255,255,255,0.75), rgba(255,255,255,0) 35%),
-        linear-gradient(180deg, #dfeef2 0%, #f7f0e9 100%);
+    .floral-arch {
       position: relative;
       overflow: hidden;
-    }
-
-    .arch-scene::before,
-    .arch-scene::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
-
-    .arch-scene::before {
       background:
-        radial-gradient(circle at 8% 20%, rgba(166, 191, 169, 0.7) 0 17%, rgba(0,0,0,0) 18%),
-        radial-gradient(circle at 82% 18%, rgba(166, 191, 169, 0.72) 0 17%, rgba(0,0,0,0) 18%),
-        radial-gradient(circle at 20% 88%, rgba(166, 191, 169, 0.6) 0 18%, rgba(0,0,0,0) 19%),
-        radial-gradient(circle at 80% 88%, rgba(166, 191, 169, 0.6) 0 18%, rgba(0,0,0,0) 19%);
-      opacity: 0.95;
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.04)),
+        radial-gradient(circle at 50% 16%, rgba(249, 245, 239, 0.9), rgba(249,245,239,0) 26%),
+        linear-gradient(180deg, #ebf4f2 0%, #f6f0ea 100%);
     }
 
-    .arch-scene::after {
+    .floral-arch::before {
       content: "";
       position: absolute;
       left: 50%;
-      top: 4%;
-      width: 90%;
-      height: 92%;
+      top: 6%;
+      width: 88%;
+      height: 88%;
       transform: translateX(-50%);
-      border: 5px solid rgba(212, 175, 55, 0.8);
+      border: 5px solid rgba(212, 175, 55, 0.85);
+      border-radius: 45% 45% 0 0 / 54% 54% 0 0;
       border-bottom: none;
-      border-radius: 48% 48% 0 0 / 55% 55% 0 0;
-      box-shadow: 0 0 0 12px rgba(212, 175, 55, 0.15), 0 0 0 18px rgba(212, 175, 55, 0.08);
+      box-shadow: 0 0 0 11px rgba(212,175,55,0.12), 0 0 0 20px rgba(212,175,55,0.08);
+      pointer-events: none;
+    }
+
+    .floral-arch::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(147, 177, 144, 0.28) 0 13%, transparent 14%),
+        radial-gradient(circle at 87% 18%, rgba(147, 177, 144, 0.28) 0 13%, transparent 14%),
+        radial-gradient(circle at 23% 76%, rgba(147, 177, 144, 0.24) 0 14%, transparent 15%),
+        radial-gradient(circle at 74% 76%, rgba(147, 177, 144, 0.24) 0 14%, transparent 15%);
+      pointer-events: none;
+    }
+
+    .petal {
+      position: absolute;
+      width: 18px;
+      height: 22px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 55% 45% 50% 50%;
+      opacity: 0.9;
+      box-shadow: inset 0 0 0 1px rgba(212,175,55,0.08);
+    }
+
+    .petal::before {
+      content: "";
+      position: absolute;
+      inset: 20% 20% 18% 20%;
+      border-radius: 100% 0 100% 0;
+      background: rgba(233, 212, 156, 0.7);
+      transform: rotate(25deg);
     }
 
     .leaf-spray {
       position: absolute;
-      width: 160px;
-      height: 160px;
+      width: 170px;
+      height: 170px;
       border-radius: 50%;
       opacity: 0.45;
-      background: radial-gradient(circle at 30% 30%, rgba(109, 143, 108, 0.9), rgba(109, 143, 108, 0.2) 60%, transparent 68%);
-      filter: blur(1px);
+      background: radial-gradient(circle at 35% 35%, rgba(142, 174, 140, 0.82), rgba(142, 174, 140, 0.22) 62%, transparent 70%);
+      filter: blur(0.5px);
     }
 
     .leaf-spray::before,
     .leaf-spray::after {
       content: "";
       position: absolute;
-      background: rgba(126, 154, 120, 0.7);
+      background: rgba(103, 136, 103, 0.8);
       border-radius: 50% 50% 50% 0;
-      transform: rotate(35deg);
       width: 18px;
-      height: 38px;
+      height: 40px;
       top: 18%;
       left: 48%;
-      box-shadow: -22px 22px rgba(126, 154, 120, 0.7), 18px 22px rgba(126, 154, 120, 0.7), -10px 54px rgba(126, 154, 120, 0.7), 12px 64px rgba(126, 154, 120, 0.7);
+      box-shadow: -22px 18px rgba(103,136,103,0.7), 20px 20px rgba(103,136,103,0.7), -10px 52px rgba(103,136,103,0.68), 12px 62px rgba(103,136,103,0.66);
     }
 
     .leaf-spray::after {
-      transform: rotate(-25deg);
-      left: 35%;
-      top: 30%;
-      box-shadow: 26px 18px rgba(126, 154, 120, 0.65), 52px 8px rgba(126, 154, 120, 0.6), 18px 52px rgba(126, 154, 120, 0.6);
+      transform: rotate(-24deg);
+      left: 33%;
+      top: 28%;
+      box-shadow: 24px 15px rgba(103,136,103,0.72), 52px 8px rgba(103,136,103,0.66), 18px 58px rgba(103,136,103,0.66);
     }
 
-    .rose-petal {
-      position: absolute;
-      width: 22px;
-      height: 26px;
-      background: rgba(255,255,255,0.9);
-      border-radius: 55% 45% 50% 50%;
-      box-shadow: inset 0 0 0 1px rgba(212,175,55,0.1);
-      opacity: 0.9;
+    .glass-card {
+      background: rgba(255, 255, 255, 0.56);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
-    .rose-petal::before {
+    .premium-line {
+      position: relative;
+    }
+
+    .premium-line::before,
+    .premium-line::after {
       content: "";
       position: absolute;
-      inset: 22% 20% 18% 20%;
-      border-radius: 100% 0 100% 0;
-      background: rgba(238, 220, 195, 0.7);
-      transform: rotate(30deg);
+      top: 50%;
+      width: 28%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,175,55,0.7), transparent);
     }
 
-    .panel-soft {
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(7px);
-      -webkit-backdrop-filter: blur(7px);
+    .premium-line::before { left: 0; }
+    .premium-line::after { right: 0; }
+
+    .section-title {
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      color: rgba(46, 61, 50, 0.75);
     }
 
     .bg-pattern {
-      background-color: #faf8f5;
+      background-color: #faf8f4;
       background-image:
-        radial-gradient(#d4af37 0.75px, transparent 0.75px),
-        radial-gradient(#d4af37 0.75px, #faf8f5 0.75px);
-      background-size: 30px 30px;
-      background-position: 0 0, 15px 15px;
-      background-opacity: 0.12;
+        radial-gradient(#d4af37 0.7px, transparent 0.7px),
+        radial-gradient(#d4af37 0.7px, #faf8f4 0.7px);
+      background-size: 28px 28px;
+      background-position: 0 0, 14px 14px;
+      opacity: 0.12;
     }
 
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-8px); }
     }
 
     .animate-float {
-      animation: float 4s ease-in-out infinite;
+      animation: float 4.5s ease-in-out infinite;
     }
   </style>
 </head>
@@ -187,19 +218,19 @@
     </button>
     <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=wedding-background-music-112521.mp3"></audio>
 
-    <section id="cover" class="relative min-h-screen flex flex-col justify-between items-center text-center p-6 arch-scene border-b border-gold-400/20 z-30">
-      <div class="leaf-spray" style="left: -25px; top: 12%; transform: rotate(30deg);"></div>
-      <div class="leaf-spray" style="right: -20px; top: 16%; transform: rotate(-35deg);"></div>
-      <div class="leaf-spray" style="left: 22%; bottom: 8%; transform: scale(0.85) rotate(-10deg);"></div>
-      <div class="leaf-spray" style="right: 18%; bottom: 10%; transform: scale(0.8) rotate(18deg);"></div>
+    <section id="cover" class="relative min-h-screen flex flex-col justify-between items-center text-center p-6 floral-arch border-b border-gold-400/20 z-30">
+      <div class="leaf-spray" style="left:-28px; top:8%; transform: rotate(20deg);"></div>
+      <div class="leaf-spray" style="right:-24px; top:10%; transform: rotate(-18deg);"></div>
+      <div class="leaf-spray" style="left:12%; bottom:8%; transform: scale(0.8) rotate(-15deg);"></div>
+      <div class="leaf-spray" style="right:14%; bottom:11%; transform: scale(0.8) rotate(18deg);"></div>
 
-      <div class="rose-petal" style="left: 12%; top: 18%; transform: rotate(15deg);"></div>
-      <div class="rose-petal" style="right: 13%; top: 16%; transform: rotate(-20deg);"></div>
-      <div class="rose-petal" style="left: 22%; bottom: 12%; transform: rotate(10deg);"></div>
-      <div class="rose-petal" style="right: 20%; bottom: 14%; transform: rotate(-10deg);"></div>
+      <div class="petal" style="left: 14%; top: 18%; transform: rotate(18deg);"></div>
+      <div class="petal" style="right: 11%; top: 17%; transform: rotate(-22deg);"></div>
+      <div class="petal" style="left: 23%; bottom: 16%; transform: rotate(10deg);"></div>
+      <div class="petal" style="right: 22%; bottom: 17%; transform: rotate(-12deg);"></div>
 
       <div class="pt-8 space-y-2 relative z-10">
-        <p class="text-xs uppercase tracking-widest text-sage-600 font-medium">The Wedding Of</p>
+        <p class="text-[11px] uppercase tracking-[0.35em] text-sage-600 font-medium">The Wedding Of</p>
         <h1 class="font-cursive text-5xl text-sage-800 leading-tight py-2">Sally & Cecep</h1>
         <p class="text-sm font-serif italic text-gray-700">Sabtu, 07 November 2026</p>
       </div>
@@ -207,21 +238,21 @@
       <div class="relative z-10 w-full max-w-xs my-4 p-2 bg-white/80 rounded-2xl shadow-xl border border-gold-400/40">
         <div class="overflow-hidden rounded-xl aspect-[4/5] relative">
           <img src="https://storage.googleapis.com/generativeai-downloads/images/wedding_illustration.jpg" alt="Sally & Cecep Ilustrasi" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-          <div class="absolute bottom-3 left-0 right-0 text-white text-xs font-light px-3">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
+          <div class="absolute bottom-3 left-0 right-0 text-white text-[11px] font-light px-3 tracking-wide">
             Sally Alvina, S.Kep., Ners. & Cecep Muhammad Mustopa, S.Kep., Ners.
           </div>
         </div>
       </div>
 
-      <div class="space-y-3 panel-soft p-4 rounded-xl border border-sage-200 shadow-sm w-full relative z-10">
-        <p class="text-xs text-gray-600 uppercase tracking-wider">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+      <div class="space-y-3 glass-card p-4 rounded-2xl border border-gold-400/20 shadow-sm w-full relative z-10">
+        <p class="text-[10px] text-gray-600 uppercase tracking-[0.25em]">Kepada Yth. Bapak/Ibu/Saudara/i</p>
         <h2 class="text-lg font-semibold text-sage-800 border-y border-gold-400/30 py-1">Keluarga Besar H. Onih</h2>
         <p class="text-[11px] text-gray-600 italic">Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda Untuk Hadir Di Acara Pernikahan Kami.</p>
       </div>
 
       <div class="pb-6 w-full relative z-10">
-        <button onclick="openInvitation()" class="w-full py-3.5 px-6 bg-sage-700 hover:bg-sage-800 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 border border-gold-400/40 animate-bounce">
+        <button onclick="openInvitation()" class="w-full py-3.5 px-6 bg-sage-800 hover:bg-sage-700 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 border border-gold-400/40 animate-bounce">
           <i class="fas fa-envelope-open"></i>
           <span>Buka Undangan</span>
         </button>
@@ -229,18 +260,19 @@
     </section>
 
     <div id="mainContent" class="opacity-0 transition-opacity duration-1000 hidden">
-      <section class="p-8 text-center space-y-4 my-6 panel-soft mx-4 rounded-2xl border border-gold-400/20 shadow-sm">
-        <div class="text-sage-600 text-2xl font-serif">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-        <p class="font-serif text-lg text-sage-800 leading-relaxed">
+      <section class="p-8 text-center space-y-4 my-6 glass-card mx-4 rounded-2xl border border-gold-400/20 shadow-sm">
+        <div class="text-sage-600 text-[1.8rem] font-serif">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+        <p class="font-serif text-lg text-sage-800 leading-relaxed italic">
           "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari mepelaumu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
         </p>
-        <p class="text-xs font-semibold text-gold-600 tracking-wider">QS. AR-RUM: 21</p>
+        <p class="text-[10px] font-semibold text-gold-600 tracking-[0.25em]">QS. AR-RUM: 21</p>
       </section>
 
       <section class="p-6 space-y-8">
-        <div class="text-center space-y-1">
+        <div class="text-center space-y-2">
+          <p class="section-title">With Gratitude</p>
           <h2 class="font-cursive text-4xl text-sage-800">Mempelai Pengantin</h2>
-          <p class="text-xs text-gray-500">Dengan Memohon Rahmat & Ridho Allah SWT</p>
+          <p class="text-[11px] text-gray-500 tracking-[0.16em] uppercase">Dengan Memohon Rahmat & Ridho Allah SWT</p>
         </div>
 
         <div class="bg-white p-5 rounded-2xl shadow-md border border-sage-100 text-center space-y-3">
@@ -250,12 +282,14 @@
             </div>
           </div>
           <div>
-            <h3 class="font-semibold text-lg text-sage-800">Sally Alvina, S.Kep., Ners.</h3>
+            <h3 class="font-semibold text-xl text-sage-800">Sally Alvina, S.Kep., Ners.</h3>
             <p class="text-xs text-gray-500 mt-1">Putri dari Bapak Aan Trianto & Ibu Marminah</p>
           </div>
         </div>
 
-        <div class="text-center"><span class="font-cursive text-3xl text-gold-500">&</span></div>
+        <div class="text-center">
+          <span class="font-cursive text-4xl text-gold-500">&</span>
+        </div>
 
         <div class="bg-white p-5 rounded-2xl shadow-md border border-sage-100 text-center space-y-3">
           <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-2 border-gold-400 p-1 shadow-sm">
@@ -264,20 +298,21 @@
             </div>
           </div>
           <div>
-            <h3 class="font-semibold text-lg text-sage-800">Cecep Muhammad Mustopa, S.Kep., Ners.</h3>
+            <h3 class="font-semibold text-xl text-sage-800">Cecep Muhammad Mustopa, S.Kep., Ners.</h3>
             <p class="text-xs text-gray-500 mt-1">Putra dari Bapak H. Tolib & Ibu H. Atik Fatimah</p>
           </div>
         </div>
       </section>
 
       <section class="p-6 my-4">
-        <div class="bg-sage-800 text-white rounded-3xl p-6 shadow-xl relative overflow-hidden text-center space-y-6">
-          <div class="space-y-2">
-            <span class="text-xs text-gold-400 uppercase tracking-widest font-semibold">Save The Date</span>
+        <div class="bg-sage-800 text-white rounded-[28px] p-6 shadow-xl relative overflow-hidden text-center space-y-6">
+          <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent"></div>
+          <div class="space-y-2 relative z-10">
+            <span class="text-[10px] text-gold-300 uppercase tracking-[0.3em] font-semibold">Save The Date</span>
             <h2 class="font-cursive text-4xl text-gold-400">Akad Nikah</h2>
           </div>
 
-          <div class="grid grid-cols-4 gap-2 text-center my-4">
+          <div class="grid grid-cols-4 gap-2 text-center my-4 relative z-10">
             <div class="bg-sage-700/80 p-2 rounded-xl border border-gold-400/20">
               <span id="days" class="block text-2xl font-bold text-gold-400">00</span>
               <span class="text-[10px] text-gray-300">Hari</span>
@@ -296,7 +331,7 @@
             </div>
           </div>
 
-          <div class="space-y-3 text-sm text-gray-200 border-t border-sage-700 pt-4">
+          <div class="space-y-3 text-sm text-gray-200 border-t border-sage-700 pt-4 relative z-10">
             <p class="flex items-center justify-center gap-2">
               <i class="far fa-calendar-alt text-gold-400"></i>
               <span>Sabtu, 07 November 2026</span>
@@ -311,7 +346,7 @@
             </p>
           </div>
 
-          <div class="pt-2">
+          <div class="pt-2 relative z-10">
             <a href="https://maps.google.com/?q=-6.31525,107.058139" target="_blank" class="inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-600 text-sage-800 font-semibold text-xs py-3 px-6 rounded-full shadow-lg transition duration-300">
               <i class="fas fa-location-arrow"></i>
               <span>Buka Google Maps</span>
@@ -322,6 +357,7 @@
 
       <section class="p-6 space-y-6">
         <div class="text-center space-y-2">
+          <p class="section-title">Wedding Gift</p>
           <h2 class="font-cursive text-4xl text-sage-800">Amplop Digital</h2>
           <p class="text-xs text-gray-600">Doa Restu Anda merupakan hadiah terindah bagi kami. Namun jika ingin memberi tanda kasih, dapat melalui rekening berikut:</p>
         </div>
@@ -362,6 +398,7 @@
       <section class="p-6 space-y-6">
         <div class="bg-white p-6 rounded-2xl shadow-md border border-sage-200 space-y-4">
           <div class="text-center space-y-1">
+            <p class="section-title">Guestbook</p>
             <h2 class="font-cursive text-3xl text-sage-800">Ucapan & Doa Restu</h2>
             <p class="text-xs text-gray-500">Kirimkan ucapan selamat & doa untuk kami</p>
           </div>
